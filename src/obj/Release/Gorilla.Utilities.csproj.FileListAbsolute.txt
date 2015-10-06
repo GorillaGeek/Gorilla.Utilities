@@ -1,6 +1,0 @@
-C:\Git\gorilla.framework\src\Gorilla.Utilities\bin\Release\Gorilla.Utilities.XML
-C:\Git\gorilla.framework\src\Gorilla.Utilities\bin\Release\Gorilla.Utilities.dll
-C:\Git\gorilla.framework\src\Gorilla.Utilities\bin\Release\Gorilla.Utilities.pdb
-C:\Git\gorilla.framework\src\Gorilla.Utilities\obj\Release\Gorilla.Utilities.dll
-C:\Git\gorilla.framework\src\Gorilla.Utilities\obj\Release\Gorilla.Utilities.pdb
-C:\Git\gorilla.framework\src\Gorilla.Utilities\obj\Release\Gorilla.Utilities.csprojResolveAssemblyReference.cache
