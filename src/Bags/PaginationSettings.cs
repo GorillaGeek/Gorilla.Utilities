@@ -1,20 +1,16 @@
 ﻿
+using Gorilla.Utilities.Enums;
+
 namespace Gorilla.Utilities.Bags
 {
     public class PaginationSettings
     {
 
-        public enum enSortOrder
-        {
-            Ascending,
-            Descending
-        }
-
         public PaginationSettings(string orderColumn)
         {
             Skip = 0;
             Take = 10;
-            OrderDirection = enSortOrder.Ascending;
+            OrderDirection = SortOrder.Ascending;
             OrderColumn = orderColumn;
         }
 
@@ -24,7 +20,7 @@ namespace Gorilla.Utilities.Bags
             Skip = (page - 1) * pageSize;
             Page = page;
             OrderColumn = orderColumn;
-            OrderDirection = enSortOrder.Ascending;
+            OrderDirection = SortOrder.Ascending;
         }
 
         public int Page { get; set; }
@@ -49,6 +45,6 @@ namespace Gorilla.Utilities.Bags
         /// <summary>
         /// Order Direction
         /// </summary>
-        public enSortOrder OrderDirection { get; set; }
+        public SortOrder OrderDirection { get; set; }
     }
 }

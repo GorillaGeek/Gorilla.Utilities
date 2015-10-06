@@ -45,6 +45,7 @@
     <Compile Include="Bags\PaginationSettings.cs" />
     <Compile Include="Bags\TypedMethodFeedback.cs" />
     <Compile Include="Constantes.cs" />
+    <Compile Include="Enums\SortOrder.cs" />
     <Compile Include="ExpressionVisitor\ParameterRebinder.cs" />
     <Compile Include="ExtensionMethodsDatetime.cs" />
     <Compile Include="ExtensionMethodsEnums.cs" />

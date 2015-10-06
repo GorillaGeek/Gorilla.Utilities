@@ -51,7 +51,7 @@ namespace Gorilla.Utilities
         [DebuggerStepThrough]
         public static int ToInt(this object value)
         {
-            int retorno = 0;
+            var retorno = 0;
 
             if (value != null)
             {
@@ -105,12 +105,9 @@ namespace Gorilla.Utilities
         [DebuggerStepThrough]
         public static string OnlyNumbers(this string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return string.Empty;
-            }
-
-            return Regex.Replace(value, @"\D+", "");
+            return string.IsNullOrWhiteSpace(value) ?
+                string.Empty :
+                Regex.Replace(value, @"\D+", "");
         }
 
         /// <summary>
@@ -119,6 +116,7 @@ namespace Gorilla.Utilities
         /// </summary>
         /// <param name="destiny"></param>
         /// <param name="source">An object to read and get values</param>
+        [DebuggerStepThrough]
         public static void LoadFrom(this object destiny, object source)
         {
             var properties = destiny.GetType().GetRuntimeProperties().ToList();
@@ -149,10 +147,10 @@ namespace Gorilla.Utilities
         /// </summary>
         /// <typeparam name="T">Tipo de objeto de saída</typeparam>
         /// <param name="items">Lista de itens de origem</param>
-        [DebuggerStepThroughAttribute]
+        [DebuggerStepThrough]
         public static List<T> ConvertAll<T>(this IEnumerable<object> items)
         {
-            List<T> retorno = new List<T>();
+            var retorno = new List<T>();
 
             foreach (var item in items)
             {
@@ -171,7 +169,7 @@ namespace Gorilla.Utilities
         /// <typeparam name="T">Class to convert</typeparam>
         /// <param name="item">Source</param>
         /// <returns></returns>
-        [DebuggerStepThroughAttribute]
+        [DebuggerStepThrough]
         public static T ConvertTo<T>(this object item)
         {
             var retorno = Activator.CreateInstance<T>();
@@ -195,6 +193,13 @@ namespace Gorilla.Utilities
             return result;
         }
 
+        /// <summary>
+        /// replace last occurence of the string
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="find"></param>
+        /// <param name="replace"></param>
+        /// <returns></returns>
         public static string ReplaceLastOccurrence(this string source, string find, string replace)
         {
             var place = source.LastIndexOf(find, StringComparison.Ordinal);
@@ -202,11 +207,25 @@ namespace Gorilla.Utilities
             return result;
         }
 
+        /// <summary>
+        /// replace last occurence of the string using Regexp
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="regexFind"></param>
+        /// <param name="replace"></param>
+        /// <returns></returns>
         public static string ReplaceRegLastOccurrence(this string source, string regexFind, string replace)
         {
             return Regex.Replace(source, regexFind, match => match.NextMatch().Index == 0 ? replace : match.Value);
         }
 
+        /// <summary>
+        /// Convert the string to slug
+        /// Gorilla Geek => gorilla-geek
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="limit">limit of caracteres</param>
+        /// <returns></returns>
         public static string ToSlug(this string source, short? limit = null)
         {
 

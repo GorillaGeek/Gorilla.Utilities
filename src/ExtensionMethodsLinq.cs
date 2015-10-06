@@ -1,4 +1,5 @@
-﻿using Gorilla.Utilities.ExpressionVisitor;
+﻿using Gorilla.Utilities.Enums;
+using Gorilla.Utilities.ExpressionVisitor;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,20 +9,20 @@ namespace Gorilla.Utilities
     public static class ExtensionMethodsLinq
     {
         /// <summary>
-        /// Ordena pelo nome do campo a tabela
+        /// Order by string prop name
         /// </summary>
-        /// <typeparam name="T">tabela</typeparam>
-        /// <param name="datasource">query base</param>
-        /// <param name="propertyName">nome do campo da tabela</param>
-        /// <param name="direction">direção do sort</param>
+        /// <typeparam name="T">table</typeparam>
+        /// <param name="query">query base</param>
+        /// <param name="sortColumn">name of prop to sort</param>
+        /// <param name="direction">asc or desc</param>
         /// <returns></returns>
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, string sortColumn, string direction)
+        public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, string sortColumn, SortOrder direction)
         {
-            var methodName = string.Format("OrderBy{0}",
-                direction == "Descending" ? "Descending" : "");
+            var methodName = $"OrderBy{(direction == SortOrder.Descending ? "Descending" : "")}";
             var parameter = Expression.Parameter(query.ElementType, "p");
 
             MemberExpression memberAccess = null;
+
             foreach (var property in sortColumn.Split('.'))
             {
                 memberAccess = Expression.Property(memberAccess ?? ((Expression)parameter), property);
@@ -50,11 +51,25 @@ namespace Gorilla.Utilities
             return Expression.Lambda<T>(merge(first.Body, secondBody), first.Parameters);
         }
 
+        /// <summary>
+        /// Compose a new lambda using 'AND' conditional
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="first"></param>
+        /// <param name="second">lambda to add</param>
+        /// <returns></returns>
         public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
         {
             return first.ComposeLambda(second, Expression.And);
         }
 
+        /// <summary>
+        /// Compose a new lambda using 'OR' conditional
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="first"></param>
+        /// <param name="second">lambda to add</param>
+        /// <returns></returns>
         public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
         {
             return first.ComposeLambda(second, Expression.Or);

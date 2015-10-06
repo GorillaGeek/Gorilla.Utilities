@@ -9,10 +9,10 @@ namespace Gorilla.Utilities.Bags
     /// </summary>
     /// <typeparam name="T">Class for data</typeparam>
     [DataContract(Name = "paged_result")]
-    public class PagedResult<U>
+    public class PagedResult<T>
     {
 
-        public PagedResult(int page, int totalRecords, int pageSize, List<U> data)
+        public PagedResult(int page, int totalRecords, int pageSize, List<T> data)
         {
             this.Page = page;
             this.TotalRecords = totalRecords;
@@ -44,6 +44,6 @@ namespace Gorilla.Utilities.Bags
         }
 
         [DataMember(Name = "data")]
-        public List<U> Data { get; set; }
+        public List<T> Data { get; set; }
     }
 }
