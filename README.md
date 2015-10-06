@@ -1,4 +1,4 @@
 Gorilla Utilities
 =================
 
-This is a library with some common functions for C#.
+This is a library for common functions for C#.
