@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.1.5</version>
+    <title>$title$</title>
+    <authors>Daniel Prado</authors>
+    <owners>felipegouveiae</owners>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>-->
+    <iconUrl>https://avatars2.githubusercontent.com/u/10532134</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Utilities for Gorilla Geek development</description>
+    <releaseNotes>DatatableResponse new constructor</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Gorilla GorillaGeek Utilities PCL Portable</tags>
+  </metadata>
+</package>

@@ -1,0 +1,5 @@
+C:\Git\gorilla.framework\src\Gorilla.Utilities\bin\Debug\Gorilla.Utilities.dll
+C:\Git\gorilla.framework\src\Gorilla.Utilities\bin\Debug\Gorilla.Utilities.pdb
+C:\Git\gorilla.framework\src\Gorilla.Utilities\obj\Debug\Gorilla.Utilities.csprojResolveAssemblyReference.cache
+C:\Git\gorilla.framework\src\Gorilla.Utilities\obj\Debug\Gorilla.Utilities.dll
+C:\Git\gorilla.framework\src\Gorilla.Utilities\obj\Debug\Gorilla.Utilities.pdb
