@@ -255,5 +255,20 @@ namespace Gorilla.Utilities
 
             return value;
         }
+
+        /// <summary>
+        /// Transform the first letter to lower
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static string FirstLetterToLower(this string source)
+        {
+            if (string.IsNullOrEmpty(source))
+            {
+                return source;
+            }
+
+            return char.ToLower(source[0]) + source.Substring(1);
+        }
     }
 }

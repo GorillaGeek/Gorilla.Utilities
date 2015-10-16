@@ -22,7 +22,6 @@ namespace Gorilla.Utilities
             var parameter = Expression.Parameter(query.ElementType, "p");
 
             MemberExpression memberAccess = null;
-
             foreach (var property in sortColumn.Split('.'))
             {
                 memberAccess = Expression.Property(memberAccess ?? ((Expression)parameter), property);
